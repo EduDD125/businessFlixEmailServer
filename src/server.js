@@ -1,5 +1,5 @@
 const express = require('express');
-const corsMiddleware = require('cors');
+const corsMiddleware = require('./corMiddleware');
 const routes = require('./routes');
 
 
@@ -8,6 +8,6 @@ app.use(express.json());
 app.use(corsMiddleware);
 app.use(routes);
 
-app.listen(3000, () => {
-    console.log("Servido rodando na porta 3000");
+app.listen(3001, () => {
+    console.log("Servido rodando na porta 3001");
 })
