@@ -1,3 +1,4 @@
+require('dotenv').config();
 const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
@@ -20,6 +21,3 @@ async function sendEmail(data) {
 };
 
 module.exports = { sendEmail };
-
-
-
