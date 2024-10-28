@@ -1,7 +1,9 @@
 const cors = require('cors');
 
+const PORT = process.env.PORT || 3001;
+
 const corsOptions = {
-    origin: 'http://localhost:3001',
+    origin: `http://localhost:${PORT}`,
     methods:'GET, POST, PUT, DELETE'
 };
 

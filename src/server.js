@@ -1,13 +1,16 @@
 const express = require('express');
 const corsMiddleware = require('./corMiddleware');
-const routes = require('./routes');
-
+const router = require('./router');
 
 const app = express();
-app.use(express.json());
-app.use(corsMiddleware);
-app.use(routes);
+const PORT = process.env.PORT || 3001;
 
-app.listen(3001, () => {
-    console.log("Servido rodando na porta 3001");
+
+app.use(corsMiddleware);
+app.use(express.json());
+
+app.use("", router);
+
+app.listen(PORT, () => {
+    console.log(`Servido rodando na porta ${PORT}`);
 })

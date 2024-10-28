@@ -8,22 +8,18 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-function sendEmail(data) {
+async function sendEmail(data) {
     const mailOptions = {
         from: data.email,
         to: process.env.RECIPIENT_EMAIL,
         subject: data.subject,
         text: `${data.message}\n\nContato: ${data.fullName}, ${data.email}`,
-    }
+    };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log("Erro ao enviar e-mail:", error);
-        } else {
-            console.log("Email enviado:", info.response)
-        }
-    });
+    transporter.sendMail(mailOptions);
 };
+
+module.exports = { sendEmail };
 
 
 
